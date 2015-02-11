@@ -5,7 +5,7 @@ export class UiAurelia {
     return Behavior
       .attachedBehavior('ui-aurelia')
       .withProperty('value', 'valueChanged', 'ui-aurelia')
-    ;
+      ;
   }
 
   static inject() { return [Element]; }

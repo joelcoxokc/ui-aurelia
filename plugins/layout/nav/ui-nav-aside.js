@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-templating';
 
-export class NavAside {
+export class UiNavAside {
 
 
     static metadata(){

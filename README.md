@@ -7,7 +7,53 @@ UI Library for [Aurelia](http://www.aurelia.io/) platform. It sets up a standard
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
 
 
+### TODO
+Create a curated list of plugins we can begin developing on.
 
+
+####COMPONENTS:
+
+> Current contains the following
+
+ - Buttons
+ - Actions
+ - Tabs
+ - Collections
+ - Collapsible
+ - Select
+ - Typehead
+ - Dropdown
+ - Modal
+ - Dialog
+ - Progress
+ - Card
+ - DataGrid
+ - Table
+ - Shadows
+ - Grid
+ - Color
+ - Draggable
+
+####LAYOUT:
+
+ - ui-main
+ - ui-body
+ - ui-section
+ - ui-nav
+ - ui-aside
+ - ui-header
+ - ui-footer
+ - ui-view
+ - ui-grid
+ - ui-custom
+
+####Plugins:
+ - uiLayoutService
+ - uiToggle
+ - uiAnimate
+ - uiWaves
+ - uiText
+ - uiBg
 
 ## Running The App
 
