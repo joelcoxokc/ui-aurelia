@@ -1,5 +1,4 @@
 import {Behavior} from 'aurelia-templating';
-import {Nav}      from './Nav'
 
 export class UiNavAside {
 

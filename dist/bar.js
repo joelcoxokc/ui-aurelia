@@ -14,21 +14,29 @@ System.register(["aurelia-framework"], function (_export) {
       Bar = _export("Bar", (function () {
         function Bar(options) {
           _classCallCheck(this, Bar);
-
-          this.open = options.open || false;
-          this.side = options.side || "right";
-          this.fixed = options.fixed || true;
         }
 
         _prototypeProperties(Bar, {
           metadata: {
             value: function metadata() {
-              return Behaviore.withProperty("open");
+              return Behavior.withProperty("open");
             },
             writable: true,
             configurable: true
           }
         }, {
+          activate: {
+            value: function activate(options) {
+
+
+              this.barId = options.barId;
+              this.open = options.open || false;
+              this.side = options.side || "right";
+              this.fixed = options.fixed || true;
+            },
+            writable: true,
+            configurable: true
+          },
           toggle: {
             value: function toggle() {
               this.open = !this.open;
@@ -43,4 +51,4 @@ System.register(["aurelia-framework"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLHlDQUVILEdBQUc7OztBQUZSLGNBQVEscUJBQVIsUUFBUTs7Ozs7OztBQUVILFNBQUc7QUFVRCxpQkFWRixHQUFHLENBVUEsT0FBTztnQ0FWVixHQUFHOztBQVlSLGNBQUksQ0FBQyxJQUFJLEdBQUksT0FBTyxDQUFDLElBQUksSUFBSyxLQUFLLENBQUM7QUFDcEMsY0FBSSxDQUFDLElBQUksR0FBSSxPQUFPLENBQUMsSUFBSSxJQUFLLE9BQU8sQ0FBQztBQUN0QyxjQUFJLENBQUMsS0FBSyxHQUFHLE9BQU8sQ0FBQyxLQUFLLElBQUksSUFBSSxDQUFDO1NBRXRDOzs2QkFoQlEsR0FBRztBQUVMLGtCQUFRO21CQUFBLG9CQUFFO0FBRWIscUJBQU8sU0FBUyxDQUNYLFlBQVksQ0FBQyxNQUFNLENBQUMsQ0FBQTthQUU1Qjs7Ozs7QUFZRCxnQkFBTTttQkFBQSxrQkFBRTtBQUVKLGtCQUFJLENBQUMsSUFBSSxHQUFHLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQzthQUUxQjs7Ozs7O2VBdkJRLEdBQUciLCJmaWxlIjoiYmFyLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLHlDQUVILEdBQUc7OztBQUZSLGNBQVEscUJBQVIsUUFBUTs7Ozs7OztBQUVILFNBQUc7QUFVRCxpQkFWRixHQUFHLENBVUEsT0FBTztnQ0FWVixHQUFHO1NBWVg7OzZCQVpRLEdBQUc7QUFFTCxrQkFBUTttQkFBQSxvQkFBRTtBQUViLHFCQUFPLFFBQVEsQ0FDVixZQUFZLENBQUMsTUFBTSxDQUFDLENBQUE7YUFFNUI7Ozs7O0FBTUQsa0JBQVE7bUJBQUEsa0JBQUMsT0FBTyxFQUFDOzs7QUFHYixrQkFBSSxDQUFDLEtBQUssR0FBRyxPQUFPLENBQUMsS0FBSyxDQUFBO0FBQzFCLGtCQUFJLENBQUMsSUFBSSxHQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUssS0FBSyxDQUFDO0FBQ3BDLGtCQUFJLENBQUMsSUFBSSxHQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUssT0FBTyxDQUFDO0FBQ3RDLGtCQUFJLENBQUMsS0FBSyxHQUFHLE9BQU8sQ0FBQyxLQUFLLElBQUksSUFBSSxDQUFDO2FBQ3RDOzs7O0FBRUQsZ0JBQU07bUJBQUEsa0JBQUU7QUFFSixrQkFBSSxDQUFDLElBQUksR0FBRyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUM7YUFFMUI7Ozs7OztlQTFCUSxHQUFHIiwiZmlsZSI6ImJhci5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
