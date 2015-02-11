@@ -1,17 +1,26 @@
 var path = require('path');
 
 var appRoot = 'src/';
+var pluginRoot = 'plugins/';
 
 module.exports = {
   root: appRoot,
-  source: appRoot + '**/*.js',
-  html: appRoot + '**/*.html',
-  style: 'styles/**/*.css',
-  stylus:{
-    index:'styles/index.styl',
-    all: 'styles/**/*.styl'
+  source: {
+    js   : appRoot + '**/*.js',
+    html : appRoot + '**/*.html',
+    style: 'styles/**/*.css',
   },
-  fonts: './styles/fonts/**/*',
+  plugins:{
+    root : pluginRoot,
+    js   : pluginRoot+ '**/*.js',
+    html : pluginRoot+ '**/*.html',
+    fonts: pluginRoot+'styles/fonts/**/*',
+    styl : {
+      index: pluginRoot+'styles/index.styl',
+      all  : pluginRoot+'styles/**/*.styl'
+    },
+  },
+  style: 'styles/**/*.css',
   output: 'dist/',
   doc:'./doc',
   e2eSpecsSrc: 'test/e2e/src/*.js',

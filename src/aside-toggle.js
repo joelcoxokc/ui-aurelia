@@ -27,6 +27,7 @@ import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating'
     }
 
     valueChanged(val){
+      (!this.view)
       console.log(this.view)
       // if(!val){
       //   if(this.view){

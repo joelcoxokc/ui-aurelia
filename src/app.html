@@ -2,7 +2,7 @@
   <import from='./nav-bar'></import>
   <import from='./nav-aside'></import>
 
-    <div class="mz-ui is-row">
+    <div ui-aurelia.bind="{active: active, inactive: !active}" class="mz-ui is-row">
       <main class="mz-body is-column">
         <nav-bar class="mz-nav mz-nav-bar" aside.bind="right" router.bind="router"></nav-bar>
         <div class="mz-main">
