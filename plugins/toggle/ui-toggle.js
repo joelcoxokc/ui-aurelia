@@ -1,10 +1,10 @@
 import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating'
 
-  export class AsideToggleTemplateController {
+  export class UiToggleTemplateController {
     static metadata(){
         return Behavior
-          .templateController('aside-toggle')
-          .withProperty('value', 'valueChanged', 'aside-toggle');
+          .templateController('ui-toggle')
+          .withProperty('value', 'valueChanged', 'ui-toggle');
           // .withProperty('icon')
           // .withProperty('aside')
     }

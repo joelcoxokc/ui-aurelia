@@ -15,12 +15,14 @@ export class UiAurelia {
   }
 
   bind () {
+
     this.valueChanged(this.value);
+    console.log(this)
   }
 
-  // valueChanged(newValue){
-  //   Object.keys(newValue).forEach(className => {
-  //     this.element.classList[newValue[className] ? 'add' : 'remove'](className);
-  //   });
-  // }
+  valueChanged(newValue){
+    Object.keys(newValue).forEach(className => {
+      this.element.classList[newValue[className] ? 'add' : 'remove'](className);
+    });
+  }
 }

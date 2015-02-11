@@ -14,14 +14,14 @@
 
     var build = {
       source: {
-            js   : buildSystem(paths.source.js ),
-            html : buildHTML(paths.source.html ),
+            js   : buildSystem(paths.source.js, paths.output),
+            html : buildHTML(paths.source.html, paths.output),
             style: buildCss(paths.source.style)
         },
 
       plugins:{
-            js    : buildSystem(paths.plugins.js)    ,
-            html  : buildHTML(paths.plugins.html)    ,
+            js    : buildSystem(paths.plugins.js, paths.output)    ,
+            html  : buildHTML(paths.plugins.html, paths.output)    ,
             fonts : buildFonts(paths.plugins.fonts)  ,
             styles: buildStylus(paths.plugins.styl.index)
         }
@@ -50,10 +50,10 @@
         .task('plugins:html'  , build.plugins.html   )
         .task('plugins:js'    , build.plugins.js     )
         .task('build:plugins' ,
-              $.sequence( 'plugins:js'
+              $.sequence( 'plugins:styles'
                         , 'plugins:html'
+                        , 'plugins:js'
                         , 'plugins:fonts'
-                        , 'plugins:styles'
                         ))
 
     //////////////////////////
@@ -63,18 +63,19 @@
     // the plumber() call prevents 'pipe breaking' caused
     // by errors from other gulp plugins
     // https://www.npmjs.com/package/gulp-plumber
-    function buildSystem(source) {
+    function buildSystem(source, dest) {
 
         return function(){
 
             return gulp
               .src(source)
+              .pipe($.flatten())
               .pipe(plumber())
               .pipe(changed(paths.output, {extension: '.js'}))
               .pipe(sourcemaps.init())
               .pipe(to5(assign({}, compilerOptions, {modules:'system'})))
               .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
-              .pipe(gulp.dest(paths.output));
+              .pipe(gulp.dest(dest));
 
         }
 
@@ -87,14 +88,15 @@
     // in ./clean.js), then runs the build-system
     // and build-html tasks in parallel
     // https://www.npmjs.com/package/gulp-run-sequence
-    function buildHTML(source) {
+    function buildHTML(source, dest) {
 
         return function() {
 
             return gulp
               .src(source)
+              .pipe($.flatten())
               .pipe(changed(paths.output, {extension: '.html'}))
-              .pipe(gulp.dest(paths.output));
+              .pipe(gulp.dest(dest));
 
         }
 

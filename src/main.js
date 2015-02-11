@@ -11,8 +11,14 @@ export function configure(aurelia) {
     .defaultResources()
     .router()
     .eventAggregator()
-    .plugin('./ui.class');
+    .plugin('./ui.class')
+    .plugin('../plugins/toggle/ui-toggle')
 
-  aurelia.start().then(a => a.setRoot('app', document.body));
+  aurelia.start()
+  .then(function(a) {
+      console.log(a)
+      // return
+      return a.setRoot('app', document.body)
+  });
 }
 
