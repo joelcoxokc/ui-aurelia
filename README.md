@@ -48,12 +48,32 @@ Create a curated list of plugins we can begin developing on.
  - ui-custom
 
 ####Plugins:
+
  - uiLayoutService
  - uiToggle
  - uiAnimate
  - uiWaves
  - uiText
  - uiBg
+
+
+##CONTRIBUTERS
+
+**Plugins** are found in the ./plugins directory.
+
+**Demo Application** found in the ./src directory
+
+**Stylus && CSS** found in the ./styles directory
+
+Most plugins will be placed into separate repos eventually
+
+The overall architecture is currently being designed.
+
+Please Note that any changes made to the Dev environment may be over written.
+
+
+
+
 
 ## Running The App
 
