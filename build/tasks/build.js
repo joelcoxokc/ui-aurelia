@@ -45,6 +45,7 @@
                         , 'source:style'
                         ))
     gulp
+        .task('plugins:styles', build.plugins.styles )
         .task('plugins:fonts' , build.plugins.fonts  )
         .task('plugins:html'  , build.plugins.html   )
         .task('plugins:js'    , build.plugins.js     )
@@ -52,6 +53,7 @@
               $.sequence( 'plugins:js'
                         , 'plugins:html'
                         , 'plugins:fonts'
+                        , 'plugins:styles'
                         ))
 
     //////////////////////////
