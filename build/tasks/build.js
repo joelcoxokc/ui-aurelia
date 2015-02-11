@@ -74,7 +74,7 @@
               .pipe(changed(paths.output, {extension: '.js'}))
               .pipe(sourcemaps.init())
               .pipe(to5(assign({}, compilerOptions, {modules:'system'})))
-              .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
+              .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.output }))
               .pipe(gulp.dest(dest));
 
         }
