@@ -65,13 +65,27 @@ Create a curated list of plugins we can begin developing on.
 
 **Stylus && CSS** found in the ./styles directory
 
-Most plugins will be placed into separate repos eventually
+**HTML** We are using HTML for our views, However, You are able to use jade
+**NOTE** We Recommend the usage of HTML over Jade.
+
+Please Contact me via Email before beginning work on a plugin, as many are already building some plugins.
+
+###Currently Developing
+
+####Layout:
+
+ - ui-nav
+ - ui-aside
+ - ui-body
+ - ui-main
+ - ui-view
+
+
+Most plugins will be placed into separate repos eventually.
 
 The overall architecture is currently being designed.
 
 Please Note that any changes made to the Dev environment may be over written.
-
-
 
 
 
