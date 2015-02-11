@@ -7,6 +7,11 @@ module.exports = {
   source: appRoot + '**/*.js',
   html: appRoot + '**/*.html',
   style: 'styles/**/*.css',
+  stylus:{
+    index:'styles/index.styl',
+    all: 'styles/**/*.styl'
+  },
+  fonts: './styles/fonts/**/*',
   output: 'dist/',
   doc:'./doc',
   e2eSpecsSrc: 'test/e2e/src/*.js',

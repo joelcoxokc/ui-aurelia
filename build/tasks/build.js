@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var $    = require('gulp-load-plugins')({lazy:false});
 var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
@@ -29,6 +30,20 @@ gulp.task('build-html', function () {
     .pipe(gulp.dest(paths.output));
 });
 
+gulp.task('stylus', function(){
+    return gulp.src(paths.stylus.index)
+      .pipe($.plumber())
+      .pipe($.stylus())
+      .pipe($.concat('stylus.css'))
+      .pipe($.autoprefixer())
+      .pipe($.plumber.stop())
+      .pipe(gulp.dest(paths.output))
+})
+gulp.task('fonts', function(){
+    return gulp.src(paths.fonts)
+      .pipe(gulp.dest(paths.output + '/fonts'))
+})
+
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
 // and build-html tasks in parallel
@@ -36,7 +51,7 @@ gulp.task('build-html', function () {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-html'],
+    ['stylus','fonts', 'build-system', 'build-html'],
     callback
   );
 });

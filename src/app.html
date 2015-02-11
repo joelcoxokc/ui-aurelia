@@ -1,9 +1,16 @@
 <template>
   <import from='./nav-bar'></import>
+  <import from='./nav-aside'></import>
 
-  <nav-bar router.bind="router"></nav-bar>
+    <div class="mz-ui is-row">
+      <main class="mz-body is-column">
+        <nav-bar class="mz-nav mz-nav-bar" aside.bind="right" router.bind="router"></nav-bar>
+        <div class="mz-main">
+          <router-view></router-view>
+        </div>
+      <footer class="mz-footer"></footer>
+      </main>
+      <nav-aside open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side"></nav-aside>
+    </div>
 
-  <div class="page-host">
-    <router-view></router-view>
-  </div>
 </template>
