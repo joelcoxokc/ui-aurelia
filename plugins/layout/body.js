@@ -3,7 +3,7 @@ import {Behavior} from 'aurelia-templating';
 export class MzBody {
   static metadata() {
     return Behavior
-      .customElement('mz-body')
+      .customElement('ui-body')
       // .withProperty('options')
       // .useView('./body.html')
 

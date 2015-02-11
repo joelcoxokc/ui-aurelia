@@ -11,7 +11,8 @@ export function configure(aurelia) {
     .defaultResources()
     .router()
     .eventAggregator()
-    .plugin('./ui.class')
+    .plugin('./ui-aurelia')
+    .plugin('./ui-nav-bar')
     .plugin('../plugins/toggle/ui-toggle')
 
   aurelia.start()

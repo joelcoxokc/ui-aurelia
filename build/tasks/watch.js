@@ -14,6 +14,6 @@ function reportChange(event){
 gulp.task('watch', ['serve'], function() {
   gulp.watch(paths.source.js,        ['source:js'     , browserSync.reload]).on('change', reportChange);
   gulp.watch(paths.source.html,      ['source:html'   , browserSync.reload]).on('change', reportChange);
-  gulp.watch(paths.plugins.style, ['plugins:stylus', browserSync.reload]).on('change', reportChange);
-  gulp.watch(paths.plugins.styl.all, browserSync.reload).on('change', reportChange);
+  gulp.watch(paths.plugins.styl.all, ['plugins:styles', browserSync.reload]).on('change', reportChange);
+  gulp.watch(paths.plugins.style, browserSync.reload).on('change', reportChange);
 });

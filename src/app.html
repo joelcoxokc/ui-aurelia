@@ -1,16 +1,17 @@
 <template>
-  <import from='./nav-bar'></import>
-  <import from='./nav-aside'></import>
+  <import from='./ui-aurelia'></import>
+  <import from='./ui-nav-bar'></import>
+  <import from='./ui-nav-aside'></import>
 
-    <div ui-aurelia.bind="{active: active, inactive: !active}" class="mz-ui is-row">
-      <main class="mz-body is-column">
-        <nav-bar class="mz-nav mz-nav-bar" aside.bind="right" router.bind="router"></nav-bar>
+    <div ui-aurelia.bind="{active: active, inactive: !active}" class="ui-aurelia is-row">
+      <main class="ui-main is-column">
+        <ui-nav-bar class="ui-nav ui-nav-bar" aside.bind="right" router.bind="router"></ui-nav-bar>
         <div class="mz-main">
           <router-view></router-view>
         </div>
       <footer class="mz-footer"></footer>
       </main>
-      <nav-aside open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side"></nav-aside>
+      <ui-nav-aside open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side"></ui-nav-aside>
     </div>
 
 </template>

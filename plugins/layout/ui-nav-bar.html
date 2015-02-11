@@ -14,7 +14,7 @@
     </div>
 
     <div class="nav-bar-content">
-      <div class="mz-collapse nav-bar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
+      <div class="ui-collapse nav-bar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
         <ul class="nav-actions nav-actions-right">
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a href.bind="row.href">${row.title}</a>

@@ -22,7 +22,7 @@ System.register(["aurelia-templating"], function (_export) {
         _prototypeProperties(MzBody, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("mz-body");
+              return Behavior.customElement("ui-body");
             },
             writable: true,
             configurable: true

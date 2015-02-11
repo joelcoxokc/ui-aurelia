@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-framework';
 
-export class NavBar {
+export class UiNavBar {
   static inject() {return [Element]}
   static metadata(){
      return Behavior

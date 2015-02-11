@@ -44,7 +44,7 @@ export class NavAside {
 
 
     attached(element){
-        var classList = ['mz-aside', 'mz-aside-nav', `aside-${this.side}`]
+        var classList = ['ui-aside', 'ui-aside-nav', `aside-${this.side}`]
         this.fixed && classList.push('aside-fixed')
         this.addClass(classList)
 

@@ -17,7 +17,7 @@ export class UiAurelia {
   bind () {
 
     this.valueChanged(this.value);
-    console.log(this)
+    console.log('ui-class', this)
   }
 
   valueChanged(newValue){
