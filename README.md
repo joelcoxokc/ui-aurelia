@@ -1,5 +1,7 @@
 # ui-Aurelia
 
+[![Join the chat at https://gitter.im/joelcoxokc/ui-aurelia](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/ui-aurelia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 UI Library for [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to build your ES6 code with the 6to5 compiler. Karma/Jasmine testing is also configured.
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
