@@ -19,15 +19,7 @@
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-light" href.bind="row.href">${row.title}</a>
           </li>
-          <!-- <li ui-toggle toggle="aside.toggle()" icon="mdi-navigation-menu"></li> -->
           <ui-toggle toggle.call="aside.toggle()" icon="mdi-navigation-menu" class=""></ui-toggle>
-          <!-- <li click.delegate="aside.toggle()">
-            <a href="">
-                <i class="mdi-navigation-menu"></i>
-            </a>
-          </li> -->
-          <!-- <aside-toggle class="aside-toggle" aside.bind="aside" icon="mdi-navigation-menu"></aside-toggle> -->
-
         </ul>
 
         <ul class="nav-actions hide-mobile">

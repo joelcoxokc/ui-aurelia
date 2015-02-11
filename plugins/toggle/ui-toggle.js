@@ -6,6 +6,7 @@ export class UiToggleCustomElement extends UiElement {
         return Behavior
             .withProperty('toggle')
             .withProperty('icon')
+
     }
 
     static inject(){
