@@ -1,60 +1,32 @@
-import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating'
+import {Behavior}   from 'aurelia-templating'
+import {UiElement}  from './ui-element'
 
-  export class UiToggleTemplateController {
+export class UiToggleCustomElement extends UiElement {
     static metadata(){
         return Behavior
-          .templateController('ui-toggle')
-          .withProperty('value', 'valueChanged', 'ui-toggle');
-          // .withProperty('icon')
-          // .withProperty('aside')
+            .withProperty('toggle')
+            .withProperty('icon')
     }
 
-    static inject() {
+    static inject(){
 
-        return [BoundViewFactory, ViewSlot]
-
-      }
-
-
-    // constructor(element){
-    constructor(viewFactory, viewSlot){
-
-        this.viewFactory = viewFactory;
-        this.viewSlot    = viewSlot;
-        this.showing     = false;
-        // this.element = element;
+        return [Element]
 
     }
 
-    valueChanged(val){
-      (!this.view)
-      console.log(this.view)
-      // if(!val){
-      //   if(this.view){
-      //     console.log('viewSlot', this.viewSlot)
-      //     console.log('view', viewSlot)
-      //   }
-      //   console.log(val)
-      //   this.showing = false;
-      //   return
-      // }
-      // if (!this.view) {
-      //   this.view = this.viewFactory.create()
-      // }
 
-      // this.view.bind()
-      // this.viewSlot.add(this.view);
+    constructor(element){
+
+        this.element = element
 
     }
 
-    attached(){
 
-      console.log(this)
-      this.element.classList.add('aside-toggle')
+    bind(){
+
+        this.element.classList.add('aside-toggle', 'waves-effect', 'waves-light', 'no-select');
 
     }
 
-    toggle(){
-      this.aside.toggle();
-    }
-  }
+
+}

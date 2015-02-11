@@ -47,7 +47,8 @@ export class UiAureliaCustomElement {
     }
 
     attached(){
-        console.log('Aurelia UI, attahced', this)
+        this.element.classList.add('ui-aurelia')
+        // console.log('Aurelia UI, attahced', this)
     }
 
     activate(){

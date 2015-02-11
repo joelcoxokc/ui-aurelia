@@ -1,15 +1,19 @@
-System.register(["aurelia-templating", "./aside"], function (_export) {
+System.register(["aurelia-templating", "./aside", "./ui-element"], function (_export) {
   "use strict";
 
-  var Behavior, Aside, _prototypeProperties, _classCallCheck, defaults, UiNavAsideCustomElement;
+  var Behavior, Aside, UiElement, _prototypeProperties, _inherits, _classCallCheck, defaults, UiNavAsideCustomElement;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aside) {
       Aside = _aside.Aside;
+    }, function (_uiElement) {
+      UiElement = _uiElement.UiElement;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+
+      _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -19,39 +23,21 @@ System.register(["aurelia-templating", "./aside"], function (_export) {
         open: false,
         fixed: true
       };
-      UiNavAsideCustomElement = _export("UiNavAsideCustomElement", (function () {
-        function UiNavAsideCustomElement(element) {
+      UiNavAsideCustomElement = _export("UiNavAsideCustomElement", (function (UiElement) {
+        function UiNavAsideCustomElement() {
           _classCallCheck(this, UiNavAsideCustomElement);
 
-
-
-
-          this.element = element;
-
-
-          this.addClass = function () {
-            var args = Array.isArray(arguments[0]) ? arguments[0] : arguments;
-            this.element.classList.add.apply(this.element.classList, args);
-          };
-
-
-          this.removeClass = function () {
-            var args = Array.isArray(arguments[0]) ? arguments[0] : arguments;
-            this.element.classList.remove.apply(this.element.classList, args);
-          };
+          if (UiElement != null) {
+            UiElement.apply(this, arguments);
+          }
         }
+
+        _inherits(UiNavAsideCustomElement, UiElement);
 
         _prototypeProperties(UiNavAsideCustomElement, {
           metadata: {
             value: function metadata() {
               return Behavior.withProperty("open").withProperty("fixed").withProperty("side").withProperty("size");
-            },
-            writable: true,
-            configurable: true
-          },
-          inject: {
-            value: function inject() {
-              return [Element];
             },
             writable: true,
             configurable: true
@@ -68,7 +54,6 @@ System.register(["aurelia-templating", "./aside"], function (_export) {
           },
           openChanged: {
             value: function openChanged(newValue) {
-              console.log(newValue);
               if (newValue) {
                 this.addClass("aside-open");
               } else {
@@ -81,8 +66,8 @@ System.register(["aurelia-templating", "./aside"], function (_export) {
         });
 
         return UiNavAsideCustomElement;
-      })());
+      })(UiElement));
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,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
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVpLW5hdi1hc2lkZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLEVBQ1IsS0FBSyxFQUNMLFNBQVMsb0RBRWIsUUFBUSxFQU9DLHVCQUF1Qjs7O0FBWDVCLGNBQVEsc0JBQVIsUUFBUTs7QUFDUixXQUFLLFVBQUwsS0FBSzs7QUFDTCxlQUFTLGNBQVQsU0FBUzs7Ozs7Ozs7O0FBRWIsY0FBUSxHQUFHO0FBQ2IsZUFBTyxFQUFHLFFBQVE7QUFDbEIsWUFBSSxFQUFNLE1BQU07QUFDaEIsWUFBSSxFQUFNLEtBQUs7QUFDZixhQUFLLEVBQUssSUFBSTtPQUNmO0FBRVksNkJBQXVCLGlEQUFTLFNBQVM7aUJBQXpDLHVCQUF1QjtnQ0FBdkIsdUJBQXVCOztjQUFTLFNBQVM7QUFBVCxxQkFBUzs7OztrQkFBekMsdUJBQXVCLEVBQVMsU0FBUzs7NkJBQXpDLHVCQUF1QjtBQUd6QixrQkFBUTttQkFBQSxvQkFBRTtBQUViLHFCQUFPLFFBQVEsQ0FDUixZQUFZLENBQUMsTUFBTSxDQUFDLENBQ3BCLFlBQVksQ0FBQyxPQUFPLENBQUMsQ0FDckIsWUFBWSxDQUFDLE1BQU0sQ0FBQyxDQUNwQixZQUFZLENBQUMsTUFBTSxDQUFDLENBQUE7YUFFOUI7Ozs7O0FBR0QsY0FBSTttQkFBQSxnQkFBRTtBQUVGLGtCQUFJLFNBQVMsR0FBRyxDQUFDLFVBQVUsRUFBRSxjQUFjLGFBQVcsSUFBSSxDQUFDLElBQUksQ0FBRyxDQUFBO0FBQ2xFLGtCQUFJLENBQUMsS0FBSyxJQUFJLFNBQVMsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUE7QUFDM0Msa0JBQUksQ0FBQyxRQUFRLENBQUMsU0FBUyxDQUFDLENBQUE7YUFFM0I7Ozs7QUFHRCxxQkFBVzttQkFBQSxxQkFBQyxRQUFRLEVBQUM7QUFDbkIsa0JBQUcsUUFBUSxFQUFFO0FBQ1Qsb0JBQUksQ0FBQyxRQUFRLENBQUMsWUFBWSxDQUFDLENBQUE7ZUFBRSxNQUM1QjtBQUNGLG9CQUFJLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxDQUFBO2VBQUU7YUFFcEM7Ozs7OztlQTdCUSx1QkFBdUI7U0FBUyxTQUFTIiwiZmlsZSI6InVpLW5hdi1hc2lkZS5qcyIsInNvdXJjZVJvb3QiOiIvZGlzdC8ifQ==

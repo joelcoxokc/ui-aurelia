@@ -9,6 +9,7 @@ System.config({
 
 System.config({
   "map": {
+    "Waves": "github:fians/Waves@0.6.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.3",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
     "aurelia-framework": "github:aurelia/framework@0.8.6",
@@ -18,6 +19,8 @@ System.config({
     "font-awesome": "npm:font-awesome@4.3.0",
     "jquery": "github:components/jquery@2.1.3",
     "lodash": "npm:lodash@3.1.0",
+    "materialize": "github:Dogfalo/materialize@0.95.2",
+    "waves": "github:fians/Waves@0.6.0",
     "github:aurelia/binding@0.3.4": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",

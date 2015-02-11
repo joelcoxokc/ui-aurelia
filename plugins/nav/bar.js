@@ -5,28 +5,23 @@ export class Bar {
     static metadata(){
 
         return Behavior
-            .withProperty('open')
+            .withProperty('showing')
 
     }
-
 
     constructor(options){
 
+        this.showing = false
+
+        this.barId   = 'bar1'
+        this.open    = false
+        this.fixed   = true
+        this.size    = 'sm'
     }
 
+    open(){
 
-    activate(options){
-
-
-        this.barId = options.barId
-        this.open  = options.open  || false;
-        this.side  = options.side  || 'right';
-        this.fixed = options.fixed || true;
-    }
-
-    toggle(){
-
-        this.open = !this.open;
+        this.showing = !this.showing;
 
     }
 }

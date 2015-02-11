@@ -10,7 +10,7 @@ export class Welcome{
   }
 
   welcome(){
-    alert(`Welcome, ${this.fullName}!`);
+    // alert(`Welcome, ${this.fullName}!`);
   }
 }
 

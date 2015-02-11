@@ -1,5 +1,6 @@
-import {Behavior} from 'aurelia-templating';
-import {Aside}    from './aside'
+import {Behavior}   from 'aurelia-templating';
+import {Aside}      from './aside'
+import {UiElement}  from './ui-element'
 
 var defaults = {
   asideId : 'aside1',
@@ -8,7 +9,7 @@ var defaults = {
   fixed   : true
 }
 
-export class UiNavAsideCustomElement {
+export class UiNavAsideCustomElement extends UiElement{
 
 
     static metadata(){
@@ -18,34 +19,6 @@ export class UiNavAsideCustomElement {
               .withProperty('fixed')
               .withProperty('side')
               .withProperty('size')
-
-    }
-
-    static inject () {
-
-          return [Element]
-
-    }
-
-    constructor(element){
-
-
-        this.element = element
-
-
-        this.addClass = function(){
-            var args = Array.isArray(arguments[0]) ? arguments[0] : arguments
-            this.element.classList.add.apply(this.element.classList, args)
-
-        }
-
-
-        this.removeClass = function(){
-
-          var args = Array.isArray(arguments[0]) ? arguments[0] : arguments
-          this.element.classList.remove.apply(this.element.classList, args)
-
-        }
 
     }
 
@@ -60,7 +33,6 @@ export class UiNavAsideCustomElement {
 
 
     openChanged(newValue){
-      console.log(newValue)
       if(newValue) {
           this.addClass('aside-open') }
       else {
