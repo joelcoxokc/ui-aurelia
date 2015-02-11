@@ -14,7 +14,7 @@ export function configure(aurelia) {
     .plugin('./ui-aurelia')
     .plugin('./ui-nav-bar')
     .plugin('./ui-nav-aside')
-    .plugin('../plugins/toggle/ui-toggle')
+    // .plugin('../plugins/toggle/ui-toggle')
 
   aurelia.start()
   .then(function(a) {

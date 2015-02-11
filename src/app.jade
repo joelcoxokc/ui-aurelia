@@ -1,14 +1,13 @@
 template
     import(from='./ui-aurelia')
-    import(from='./ui-nav-bar')
-    import(from='./ui-nav-aside')
 
-    div.ui-aurelia.is-row( ui-aurelia.bind="{active: active, inactive: !active}")
-        main.ui-main.is-column
-            ui-nav-bar.ui-nav.ui-nav-bar(aside.bind="right" router.bind="router")
-            div.ui-main
-                router-view
-            footer.mz-footer
+    ui-aurelia.is-row(router.bind="router",
+                      nav.bind="{right:true, bar:true}",
+        //- main.ui-main.is-column
+        //-     ui-nav-bar.ui-nav.ui-nav-bar(aside.bind="nav.right")
+        //-     div.ui-main
+        //-         router-view
+        //-     footer.ui-footer
 
-        ui-nav-aside(open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side")
+        //- ui-nav-aside(open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side")
 

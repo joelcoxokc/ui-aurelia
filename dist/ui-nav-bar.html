@@ -19,7 +19,7 @@
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a href.bind="row.href">${row.title}</a>
           </li>
-          <li click.trigger="aside.toggle()">
+          <li click.delegate="aside.toggle()">
             <a href="">
                 <i class="mdi-navigation-menu"></i>
             </a>

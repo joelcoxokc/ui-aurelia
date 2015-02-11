@@ -1,72 +1,81 @@
-System.register(["aurelia-templating", "./ui-nav"], function (_export) {
+System.register(["aurelia-framework", "aurelia-templating", "./aside", "./bar", "./message"], function (_export) {
   "use strict";
 
-  var Behavior, Nav, _prototypeProperties, _classCallCheck, UiAurelia;
+  var All, Behavior, Aside, Bar, MsgPublisher, MsgSubscriber, _prototypeProperties, _classCallCheck, defaults, UiAureliaCustomElement;
   return {
-    setters: [function (_aureliaTemplating) {
+    setters: [function (_aureliaFramework) {
+      All = _aureliaFramework.All;
+    }, function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
-    }, function (_uiNav) {
-      Nav = _uiNav.Nav;
+    }, function (_aside) {
+      Aside = _aside.Aside;
+    }, function (_bar) {
+      Bar = _bar.Bar;
+    }, function (_message) {
+      MsgPublisher = _message.MsgPublisher;
+      MsgSubscriber = _message.MsgSubscriber;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      UiAurelia = _export("UiAurelia", (function () {
-        function UiAurelia(element, nav) {
-          _classCallCheck(this, UiAurelia);
+      defaults = {
+        asideId: "aside1",
+        size: "md",
+        side: "left",
+        open: false,
+        fixed: true
+      };
+      UiAureliaCustomElement = _export("UiAureliaCustomElement", (function () {
+        function UiAureliaCustomElement(element, bar, pub, sub) {
+          _classCallCheck(this, UiAureliaCustomElement);
 
-          this.nav = nav;
           this.element = element;
+          this.pub = pub;
+          this.sub = sub;
+          this.aside = {};
+          this.bar = {};
+          this.aside = new Aside(defaults);
+
         }
 
-        _prototypeProperties(UiAurelia, {
+        _prototypeProperties(UiAureliaCustomElement, {
           metadata: {
             value: function metadata() {
-              return Behavior.attachedBehavior("ui-aurelia").withProperty("value", "valueChanged", "ui-aurelia");
+              return Behavior.withProperty("router").withProperty("aside").withProperty("nav").withProperty("footer");
             },
             writable: true,
             configurable: true
           },
           inject: {
             value: function inject() {
-              return [Element, Nav];
+              return [Element, Bar, MsgPublisher, MsgSubscriber];
             },
             writable: true,
             configurable: true
           }
         }, {
+          attached: {
+            value: function attached() {
+              console.log("Aurelia UI, attahced", this);
+            },
+            writable: true,
+            configurable: true
+          },
           activate: {
             value: function activate() {
-              console.log(this);
-            },
-            writable: true,
-            configurable: true
-          },
-          bind: {
-            value: function bind() {
-              this.valueChanged(this.value);
-              console.log("ui-class", this);
-            },
-            writable: true,
-            configurable: true
-          },
-          valueChanged: {
-            value: function valueChanged(newValue) {
-              var _this = this;
-              Object.keys(newValue).forEach(function (className) {
-                _this.element.classList[newValue[className] ? "add" : "remove"](className);
-              });
+              this.header = "Joel";
+              console.log("Nav Activated", this);
             },
             writable: true,
             configurable: true
           }
         });
 
-        return UiAurelia;
+        return UiAureliaCustomElement;
       })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVpLWF1cmVsaWEuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSxFQUNSLEdBQUcseUNBRUUsU0FBUzs7O0FBSGQsY0FBUSxzQkFBUixRQUFROztBQUNSLFNBQUcsVUFBSCxHQUFHOzs7Ozs7O0FBRUUsZUFBUztBQWlCUCxpQkFqQkYsU0FBUyxDQWlCTixPQUFPLEVBQUUsR0FBRztnQ0FqQmYsU0FBUzs7QUFrQmQsY0FBSSxDQUFDLEdBQUcsR0FBTyxHQUFHLENBQUE7QUFDbEIsY0FBSSxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUE7U0FDekI7OzZCQXBCUSxTQUFTO0FBRVgsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBQ1YsZ0JBQWdCLENBQUMsWUFBWSxDQUFDLENBQzlCLFlBQVksQ0FBQyxPQUFPLEVBQUUsY0FBYyxFQUFFLFlBQVksQ0FBQyxDQUNuRDthQUVSOzs7O0FBRU0sZ0JBQU07bUJBQUEsa0JBQUc7QUFFWixxQkFBTyxDQUFDLE9BQU8sRUFBRSxHQUFHLENBQUMsQ0FBQzthQUV6Qjs7Ozs7QUFRRCxrQkFBUTttQkFBQSxvQkFBRTtBQUVOLHFCQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFBO2FBRXBCOzs7O0FBR0QsY0FBSTttQkFBQyxnQkFBRztBQUVKLGtCQUFJLENBQUMsWUFBWSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztBQUM5QixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLENBQUE7YUFDaEM7Ozs7QUFHRCxzQkFBWTttQkFBQSxzQkFBQyxRQUFRLEVBQUM7O0FBQ2xCLG9CQUFNLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxVQUFBLFNBQVMsRUFBSTtBQUN2QyxzQkFBSyxPQUFPLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsR0FBRyxLQUFLLEdBQUcsUUFBUSxDQUFDLENBQUMsU0FBUyxDQUFDLENBQUM7ZUFDN0UsQ0FBQyxDQUFDO2FBQ047Ozs7OztlQXpDUSxTQUFTIiwiZmlsZSI6InVpLWF1cmVsaWEuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVpLWF1cmVsaWEuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsR0FBRyxFQUNILFFBQVEsRUFDUixLQUFLLEVBQ0wsR0FBRyxFQUNILFlBQVksRUFDWixhQUFhLHlDQUdqQixRQUFRLEVBUUMsc0JBQXNCOzs7QUFoQjNCLFNBQUcscUJBQUgsR0FBRzs7QUFDSCxjQUFRLHNCQUFSLFFBQVE7O0FBQ1IsV0FBSyxVQUFMLEtBQUs7O0FBQ0wsU0FBRyxRQUFILEdBQUc7O0FBQ0gsa0JBQVksWUFBWixZQUFZO0FBQ1osbUJBQWEsWUFBYixhQUFhOzs7Ozs7O0FBR2pCLGNBQVEsR0FBRztBQUNiLGVBQU8sRUFBRyxRQUFRO0FBQ2xCLFlBQUksRUFBTSxJQUFJO0FBQ2QsWUFBSSxFQUFNLE1BQU07QUFDaEIsWUFBSSxFQUFNLEtBQUs7QUFDZixhQUFLLEVBQUssSUFBSTtPQUNmO0FBRVksNEJBQXNCO0FBb0JwQixpQkFwQkYsc0JBQXNCLENBb0JuQixPQUFPLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHO2dDQXBCekIsc0JBQXNCOztBQXNCM0IsY0FBSSxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUE7QUFDdEIsY0FBSSxDQUFDLEdBQUcsR0FBTyxHQUFHLENBQUE7QUFDbEIsY0FBSSxDQUFDLEdBQUcsR0FBTyxHQUFHLENBQUE7QUFDbEIsY0FBSSxDQUFDLEtBQUssR0FBSyxFQUFFLENBQUM7QUFDbEIsY0FBSSxDQUFDLEdBQUcsR0FBTyxFQUFFLENBQUM7QUFDbEIsY0FBSSxDQUFDLEtBQUssR0FBSyxJQUFJLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQTs7U0FHckM7OzZCQTlCUSxzQkFBc0I7QUFFeEIsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBRVYsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QixZQUFZLENBQUMsT0FBTyxDQUFDLENBQ3JCLFlBQVksQ0FBQyxLQUFLLENBQUMsQ0FDbkIsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QjthQUVSOzs7O0FBRU0sZ0JBQU07bUJBQUEsa0JBQUc7QUFFWixxQkFBTyxDQUFDLE9BQU8sRUFBQyxHQUFHLEVBQUUsWUFBWSxFQUFFLGFBQWEsQ0FBQyxDQUFDO2FBRXJEOzs7OztBQWNELGtCQUFRO21CQUFBLG9CQUFFO0FBQ04scUJBQU8sQ0FBQyxHQUFHLENBQUMsc0JBQXNCLEVBQUUsSUFBSSxDQUFDLENBQUE7YUFDNUM7Ozs7QUFFRCxrQkFBUTttQkFBQSxvQkFBRTtBQUVOLGtCQUFJLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQTtBQUNwQixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxlQUFlLEVBQUUsSUFBSSxDQUFDLENBQUE7YUFFckM7Ozs7OztlQXpDUSxzQkFBc0IiLCJmaWxlIjoidWktYXVyZWxpYS5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9

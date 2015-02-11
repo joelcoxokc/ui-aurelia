@@ -13,6 +13,8 @@ export class Bar {
     constructor(options){
 
     }
+
+
     activate(options){
 
 

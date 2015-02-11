@@ -1,46 +1,66 @@
-import {Behavior} from 'aurelia-templating';
-import {Nav}      from './ui-nav'
+import {All}              from 'aurelia-framework';
+import {Behavior}         from 'aurelia-templating';
+import {Aside}            from './aside'
+import {Bar}              from './bar'
+import {MsgPublisher}     from './message'
+import {MsgSubscriber}    from './message'
 
-export class UiAurelia {
+
+var defaults = {
+  asideId : 'aside1',
+  size    : 'md'    ,
+  side    : 'left' ,
+  open    : false   ,
+  fixed   : true
+}
+
+export class UiAureliaCustomElement {
 
     static metadata(){
 
         return Behavior
-            .attachedBehavior('ui-aurelia')
-            .withProperty('value', 'valueChanged', 'ui-aurelia')
+            // .noView()
+            .withProperty('router')
+            .withProperty('aside')
+            .withProperty('nav')
+            .withProperty('footer')
             ;
 
     }
 
     static inject() {
 
-        return [Element, Nav];
+        return [Element,Bar, MsgPublisher, MsgSubscriber];
 
     }
 
-    constructor(element, nav) {
-        this.nav     = nav
+    constructor(element, bar, pub, sub) {
+
         this.element = element
+        this.pub     = pub
+        this.sub     = sub
+        this.aside   = {};
+        this.bar     = {};
+        this.aside   = new Aside(defaults)
+
+
     }
 
+    attached(){
+        console.log('Aurelia UI, attahced', this)
+    }
 
     activate(){
 
-        console.log(this)
+        this.header = 'Joel'
+        console.log('Nav Activated', this)
 
     }
 
 
-    bind () {
-
-        this.valueChanged(this.value);
-        console.log('ui-class', this)
-    }
-
-
-    valueChanged(newValue){
-        Object.keys(newValue).forEach(className => {
-            this.element.classList[newValue[className] ? 'add' : 'remove'](className);
-        });
-    }
+    // valueChanged(newValue){
+    //     Object.keys(newValue).forEach(className => {
+    //         this.element.classList[newValue[className] ? 'add' : 'remove'](className);
+    //     });
+    // }
 }
