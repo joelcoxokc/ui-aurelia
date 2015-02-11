@@ -10,7 +10,7 @@ export class App {
     constructor(router) {
 
         this.router = router;
-        this.right = new Aside({open:false, fixed:true, side:"left"})
+        this.right = new TempAside({open:false, fixed:true, side:"left"})
         this.router.configure(
             config => {
 
@@ -30,4 +30,30 @@ export class App {
     }
 
 
+}
+
+class TempAside {
+
+    static metadata(){
+
+        return Behaviore
+            .withProperty('open')
+
+    }
+
+
+    constructor(options){
+
+        this.open  = options.open  || false;
+        this.side  = options.side  || 'right';
+        this.fixed = options.fixed || true;
+
+    }
+
+
+    toggle(){
+
+        this.open = !this.open;
+
+    }
 }

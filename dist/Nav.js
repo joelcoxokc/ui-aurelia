@@ -1,10 +1,14 @@
-System.register(["aurelia-framework"], function (_export) {
+System.register(["aurelia-framework", "./aside", "./bar"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, Nav;
+  var Behavior, Aside, Bar, _prototypeProperties, _classCallCheck, Nav;
   return {
     setters: [function (_aureliaFramework) {
       Behavior = _aureliaFramework.Behavior;
+    }, function (_aside) {
+      Aside = _aside.Aside;
+    }, function (_bar) {
+      Bar = _bar.Bar;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -12,18 +16,24 @@ System.register(["aurelia-framework"], function (_export) {
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
       Nav = _export("Nav", (function () {
-        function Nav(options) {
+        function Nav(aside, bar) {
           _classCallCheck(this, Nav);
 
-          this.open = options.open || false;
-          this.side = options.side || "right";
-          this.fixed = options.fixed || true;
+          this.$aside = aside;
+          this.$bar = bar;
         }
 
         _prototypeProperties(Nav, {
           metadata: {
             value: function metadata() {
               return Behaviore.withProperty("open");
+            },
+            writable: true,
+            configurable: true
+          },
+          inject: {
+            value: function inject() {
+              return [Aside, Bar];
             },
             writable: true,
             configurable: true
@@ -43,4 +53,4 @@ System.register(["aurelia-framework"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk5hdi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLHlDQUVILEdBQUc7OztBQUZSLGNBQVEscUJBQVIsUUFBUTs7Ozs7OztBQUVILFNBQUc7QUFVRCxpQkFWRixHQUFHLENBVUEsT0FBTztnQ0FWVixHQUFHOztBQVlSLGNBQUksQ0FBQyxJQUFJLEdBQUksT0FBTyxDQUFDLElBQUksSUFBSyxLQUFLLENBQUM7QUFDcEMsY0FBSSxDQUFDLElBQUksR0FBSSxPQUFPLENBQUMsSUFBSSxJQUFLLE9BQU8sQ0FBQztBQUN0QyxjQUFJLENBQUMsS0FBSyxHQUFHLE9BQU8sQ0FBQyxLQUFLLElBQUksSUFBSSxDQUFDO1NBRXRDOzs2QkFoQlEsR0FBRztBQUVMLGtCQUFRO21CQUFBLG9CQUFFO0FBRWIscUJBQU8sU0FBUyxDQUNYLFlBQVksQ0FBQyxNQUFNLENBQUMsQ0FBQTthQUU1Qjs7Ozs7QUFZRCxnQkFBTTttQkFBQSxrQkFBRTtBQUVKLGtCQUFJLENBQUMsSUFBSSxHQUFHLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQzthQUUxQjs7Ozs7O2VBdkJRLEdBQUciLCJmaWxlIjoiTmF2LmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLEVBQ1IsS0FBSyxFQUNMLEdBQUcseUNBRUUsR0FBRzs7O0FBSlIsY0FBUSxxQkFBUixRQUFROztBQUNSLFdBQUssVUFBTCxLQUFLOztBQUNMLFNBQUcsUUFBSCxHQUFHOzs7Ozs7O0FBRUUsU0FBRztBQWVELGlCQWZGLEdBQUcsQ0FlQSxLQUFLLEVBQUUsR0FBRztnQ0FmYixHQUFHOztBQWdCUixjQUFJLENBQUMsTUFBTSxHQUFHLEtBQUssQ0FBQTtBQUNuQixjQUFJLENBQUMsSUFBSSxHQUFLLEdBQUcsQ0FBQTtTQUNwQjs7NkJBbEJRLEdBQUc7QUFFTCxrQkFBUTttQkFBQSxvQkFBRTtBQUViLHFCQUFPLFNBQVMsQ0FDWCxZQUFZLENBQUMsTUFBTSxDQUFDLENBQUE7YUFFNUI7Ozs7QUFFTSxnQkFBTTttQkFBQSxrQkFBRztBQUVaLHFCQUFPLENBQUMsS0FBSyxFQUFFLEdBQUcsQ0FBQyxDQUFBO2FBRXRCOzs7OztBQVFELGdCQUFNO21CQUFBLGtCQUFFO0FBRUosa0JBQUksQ0FBQyxJQUFJLEdBQUcsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDO2FBRTFCOzs7Ozs7ZUF6QlEsR0FBRyIsImZpbGUiOiJuYXYuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==

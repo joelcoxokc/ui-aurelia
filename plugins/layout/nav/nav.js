@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-framework';
 import {Aside}    from './aside'
-import {Bar}    from './aside'
+import {Bar}    from './bar'
 
 export class Nav {
 
@@ -11,13 +11,15 @@ export class Nav {
 
     }
 
+    static inject() {
 
-    constructor(options){
+        return [Aside, Bar]
 
-        this.open  = options.open  || false;
-        this.side  = options.side  || 'right';
-        this.fixed = options.fixed || true;
+    }
 
+    constructor(aside, bar){
+        this.$aside = aside
+        this.$bar   = bar
     }
 
 

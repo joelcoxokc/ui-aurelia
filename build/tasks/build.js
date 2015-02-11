@@ -15,13 +15,13 @@
     var build = {
       source: {
             js   : buildSystem(paths.source.js, paths.output),
-            html : buildHTML(paths.source.html, paths.output),
+            html : buildHTML([paths.source.html, paths.source.jade], paths.output),
             style: buildCss(paths.source.style)
         },
 
       plugins:{
             js    : buildSystem(paths.plugins.js, paths.output)    ,
-            html  : buildHTML(paths.plugins.html, paths.output)    ,
+            html  : buildHTML([paths.plugins.html, paths.plugins.jade], paths.output)    ,
             fonts : buildFonts(paths.plugins.fonts)  ,
             styles: buildStylus(paths.plugins.styl.index)
         }
@@ -91,9 +91,14 @@
     function buildHTML(source, dest) {
 
         return function() {
-
+            var jadeFilter = $.filter('**/*.jade')
             return gulp
               .src(source)
+              .pipe(jadeFilter)
+              .pipe($.plumber())
+              .pipe($.jade())
+              .pipe($.plumber.stop())
+              .pipe(jadeFilter.restore())
               .pipe($.flatten())
               .pipe(changed(paths.output, {extension: '.html'}))
               .pipe(gulp.dest(dest));

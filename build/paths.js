@@ -8,16 +8,18 @@ module.exports = {
   source: {
     js   : appRoot + '**/*.js',
     html : appRoot + '**/*.html',
+    jade : appRoot + '**/*.jade',
     style: 'styles/**/*.css',
   },
   plugins:{
     root : pluginRoot,
     js   : pluginRoot+ '**/*.js',
     html : pluginRoot+ '**/*.html',
-    fonts: pluginRoot+'styles/fonts/**/*',
+    jade : pluginRoot+ '**/*.jade',
+    fonts: 'styles/fonts/**/*',
     styl : {
-      index: pluginRoot+'styles/index.styl',
-      all  : pluginRoot+'styles/**/*.styl'
+      index: 'styles/index.styl',
+      all  : 'styles/**/*.styl'
     },
   },
   style: 'styles/**/*.css',
