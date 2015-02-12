@@ -1,3 +1,9 @@
+
+
+#This Package has been moved to 
+
+##[aurelia-interface](http://github.com/joelcoxokc/aurelia-interface)
+
 # ui-Aurelia
 
 [![Join the chat at https://gitter.im/joelcoxokc/ui-aurelia](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/ui-aurelia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
